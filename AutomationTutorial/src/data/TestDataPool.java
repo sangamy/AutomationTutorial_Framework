@@ -18,6 +18,20 @@ public TestDataPool(){
 
 //Parameterized constructor to read any test case data
 public TestDataPool(int tcRowNumber){
+	
+	// Current Thread - Stack
+
+	String stack;
+	try {
+		stack = Thread.currentThread().getStackTrace()[3].getClassName(); // For 3rd stack including AutomationProjects classes
+	} catch (Exception e1) {
+		stack = Thread.currentThread().getStackTrace()[2].getClassName(); // From elicpse, the test case is 2nd stack
+	}
+	String packageName = stack.substring(0,stack.lastIndexOf("."));
+ 	String className = stack; //e.g.regressionTest.test.Testcase100
+	System.out.println("Test Case Details:");
+	System.out.println("Complete TestCase Name = "+stack);
+  	
 	try {
 		tcData=ExcelUtils.getTestDataXls(Constants.DATAPOOL_PATH, "Automation", 0, tcRowNumber);
 	} catch (Exception e) {
