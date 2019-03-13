@@ -7,6 +7,7 @@ import data.TestDataPool;
 import infrastructure.Operations;
 import pageObjects.FlightConfirmationObj;
 import utils.PropertyUtils;
+import utils.ReportingUtils;
 
 public class FlightConfirmationPage {
 
@@ -19,7 +20,7 @@ public class FlightConfirmationPage {
 		String expected_Arriving_City = TestDataPool.tcData.get("arrivingInCity");
 		String expected_Depart_Class = TestDataPool.tcData.get("class");
 		String expected_Depart_price = PropertyUtils.propertyFile_Read(Constants.TESTDATAOUTPUT_PATH, "departPrice");
-		
+
 		System.out.println("#### Flight Confirmation ####");
 		String actual_ConfirmationText = op.getText(driver, FlightConfirmationObj.text_Confirmation);
 		String actual_DepartingInfo = op.getText(driver, FlightConfirmationObj.text_DepartingInfo);
@@ -54,11 +55,11 @@ public class FlightConfirmationPage {
 		String arrivingInCity =departEndIndex_City_array[0].substring(arriveBeginIndex_City+3);
 		System.out.println(" arrivingInCity = "+arrivingInCity);
 
-		
+
 		//TODO Date   
 		String arriveCity = TestDataPool.tcData.get("arrivingInCity");// Paris
 		String actual_DepartingInfo_Date = actual_DepartingInfo.substring(actual_DepartingInfo.indexOf(arriveCity)+arriveCity.length(), actual_DepartingInfo.indexOf(" @ "));
-				
+
 		//First class
 		int departBeginIndex_class = actual_DepartingInfo.indexOf('F'); System.out.println("departBeginIndex_class="+departBeginIndex_class);
 		int departEndIndex_class = actual_DepartingInfo.indexOf('$'); System.out.println("departEndIndex_class="+departEndIndex_class);
@@ -112,14 +113,63 @@ public class FlightConfirmationPage {
 		System.out.println("-------Passengers-------");
 		actual_Passengers=actual_Passengers.replaceAll("[ passengers]", "");
 		System.out.println("actual_Passengers = "+actual_Passengers);
-		
+
 		System.out.println("-------Tax-------");
 		actual_Tax = actual_Tax.substring(1,actual_Tax.indexOf(' ') );
 		System.out.println("actual_Tax = "+actual_Tax);
-		
+
 		System.out.println(" ------- Total price ------");
 		actual_TotalPrice = actual_TotalPrice.substring(1, actual_TotalPrice.indexOf(' '));
 		System.out.println("actual_TotalPrice = "+ actual_TotalPrice);;
+
+		System.out.println("******** Validation *********");
+		/*if(expected_ConfirmationText.equals(actual_ConfirmationText))
+			System.out.println("Pass - expected_ConfirmationText = actual_ConfirmationText");
+		else
+			System.out.println("Pass - expected_ConfirmationText != actual_ConfirmationText");
+		 */
+		//Validation - Confirmation text
+		String verdict_confirmText = ReportingUtils.compare(expected_ConfirmationText, actual_ConfirmationText);
+		ReportingUtils.reportResult("Done", "Flight Confirmation", "Flight Confirmation Text Validation"+actual_ConfirmationText);
+
+		//Validation - Depart City
+		String verdict_DepartCity = ReportingUtils.compare(expected_Departing_City, actual_Departing_City);
+		ReportingUtils.reportResult("Done", "Flight Confirmation - Departing City" , "Flight confirmation for departing city"+actual_Departing_City);
+
+		//Validation - Return City
+		String verdict_ReturnCity = ReportingUtils.compare(expected_Arriving_City, actual_returning_City);
+		ReportingUtils.reportResult("Done", "Flight Confirmation - Returning City" , "Flight confirmation for returning city"+actual_returning_City);
+
+		//Validation - Class
+		ReportingUtils.reportResult("Done", "Flight confirmation - Class", "Flight confirmation Class - "+actual_Depart_Class);
+
+		//Validation - Depart Price
+		ReportingUtils.reportResult("Done", "Flight Depart Price", "Depart Price-"+actual_Depart_price);
+
+		//Validation - Returning City
+		ReportingUtils.reportResult("Done", "Flight Returning ", "Returning Flight-"+actual_returning_City);
+
+		//Validation - Returning Class
+		ReportingUtils.reportResult("Done", "Flight Class ", "Returning Class-"+actual_Depart_Class);
+
+		//Validation Returning price
+		ReportingUtils.reportResult("Done", "Flight Return price ", "Returning Price-"+ "");
+
+		// Validation - No of passengers
+		ReportingUtils.reportResult("Done", "Flight No of Passengers ", "Passengers-"+ actual_Passengers);
+
+		// Validation - Tax
+		ReportingUtils.reportResult("Done", "Flight - tax ", "Tax-"+ actual_Tax);
+
+
+		// Validation - Total price
+		ReportingUtils.reportResult("Done", "Flight - Total price ", "Total price-"+ actual_TotalPrice);
+
+
+		// Flight confirmation screenshot
+		ReportingUtils.reportResult("Pass", "Flight Confirmation", "Flight confirmation final validation");
+
+
 
 	}
 

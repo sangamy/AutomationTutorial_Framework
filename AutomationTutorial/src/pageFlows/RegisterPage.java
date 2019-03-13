@@ -9,6 +9,7 @@ import data.TestDataPool;
 import infrastructure.Operations;
 import pageObjects.RegisterObj;
 import utils.ExcelUtils;
+import utils.ReportingUtils;
 
 public class RegisterPage {
 
@@ -43,6 +44,8 @@ public class RegisterPage {
 		op.setText(driver, RegisterObj.textbox_Password, TestDataPool.tcData.get("password"));
 		op.setText(driver, RegisterObj.textbox_ConfirmPassword, TestDataPool.tcData.get("password"));
 
+		ReportingUtils.reportResult("Pass", "Registration", "Registration successful!");
+		
 		op.clickLink(driver, RegisterObj.link_Submit);
 	
 		op.implicitWait(driver, 30);

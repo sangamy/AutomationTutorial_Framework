@@ -53,13 +53,11 @@ public class DemoAutTest_ModularizedFramework {
 			new BookAFlightPage().passengers(driver);
 			new BookAFlightPage().creditcard(driver);
 			
-			//Flight Confirmation
+			//Flight Confirmation - Validation
 			new FlightConfirmationPage().validation_Confirm(driver);
 			
-			//TODO Validation
-
 			//TODO Sign out
-
+			new FlightConfirmationPage().logout(driver);
 
 
 
@@ -69,7 +67,7 @@ public class DemoAutTest_ModularizedFramework {
 		}
 
 		finally{
-			//driver.close();
+			driver.close();
 			System.out.println("######## Test Case Ends - DemoAutTest_ModularizedFramework #########");
 
 		}

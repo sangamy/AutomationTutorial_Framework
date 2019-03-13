@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import infrastructure.Operations;
 import pageObjects.RegisterConfirmObj;
+import utils.ReportingUtils;
 
 public class RegisterConfirmPage {
 
@@ -24,6 +25,7 @@ public class RegisterConfirmPage {
 		else
 			System.out.println("Fail - Dear confirmation");
 
+		
 		
 		
 		
@@ -48,6 +50,8 @@ public class RegisterConfirmPage {
 	
 	op.implicitWait(driver, 30);
 
+	
+	ReportingUtils.reportResult("Pass", "Registration Confirmation", "Registration Confirmation");
 	}
 	
 		

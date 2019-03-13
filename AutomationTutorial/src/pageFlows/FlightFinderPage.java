@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import data.TestDataPool;
 import infrastructure.Operations;
 import pageObjects.FlightFinderObj;
+import utils.ReportingUtils;
 
 public class FlightFinderPage {
 
@@ -39,9 +40,13 @@ public class FlightFinderPage {
 		else
 			op.clickRadiobutton(driver, FlightFinderObj.radiobutton_EconomyClass);
 
+		
 	}
 
 	public void continueButton(WebDriver driver){
+		
+		ReportingUtils.reportResult("Pass", "Flight Finder Page", "Flight Finder Page");
+		
 		op.clickLink(driver, FlightFinderObj.button_Continue);
 
 		op.implicitWait(driver, 30);

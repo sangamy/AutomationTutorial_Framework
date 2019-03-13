@@ -92,6 +92,9 @@ public class BookAFlightPage {
 			op.setText(driver, BookAFlightObj.textbox_CreditCardLastName1, TestDataPool.tcData.get("lastName1"));
 
 			op.clickCheckbox(driver, BookAFlightObj.checkbox_TicketlessTravel, TestDataPool.tcData.get("ticketlessTravel"));
+			
+			ReportingUtils.reportResult("Pass", "Book A FLight", "Book A FLight");
+			
 			op.clickLink(driver, BookAFlightObj.button_SecurePurchase);
 
 		} catch (Exception e) {

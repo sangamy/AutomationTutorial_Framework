@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import infrastructure.Operations;
 import pageObjects.SelectFlightObj;
+import utils.ReportingUtils;
 
 public class SelectFlightPage {
 	
@@ -17,6 +18,7 @@ public void departReturnFlight(WebDriver driver){
 	//Return Flight
 	new Operations().clickRadiobutton(driver, SelectFlightObj.radiobutton_ReturnUnifiedAirlines);
 	
+	ReportingUtils.reportResult("Pass", "Select Flight Page", "Select Flight Page");
 	//Continue
 	new Operations().clickLink(driver, SelectFlightObj.button_Continue);
 

@@ -50,7 +50,7 @@ public class ScreenshotUtils {
 	dir.mkdirs();
 	 
 	try {
-		ImageIO.write(image, "jpg", new File(folderPath+ "/screenShot"+sCounter+".png"));
+		ImageIO.write(image, "png", new File(folderPath+ "/screenShot"+sCounter+".png"));
 	} catch (IOException e) {
  		e.printStackTrace();
 	}
