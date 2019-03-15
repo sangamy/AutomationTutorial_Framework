@@ -1,10 +1,23 @@
 package test;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.NoSuchPaddingException;
+
+import utils.KeyboardUtils;
+import utils.PasswordUtils;
+
 public class playground {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
+		KeyboardUtils.Key_Tab();
+		KeyboardUtils.typeString("C:\\directory\\file.extension");
+		KeyboardUtils.Key_Enter();
 		
 		
+		PasswordUtils.encryptString("autopass12345");
 		
 		String x = "New York to Paris";
 		int y = x.indexOf("to ");

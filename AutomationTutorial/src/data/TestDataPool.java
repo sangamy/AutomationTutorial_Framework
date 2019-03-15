@@ -3,6 +3,7 @@ package data;
 import java.util.HashMap;
 
 import utils.ExcelUtils;
+import utils.FileSystemUtils;
 
 public class TestDataPool {
 public static HashMap<String, String> tcData = new HashMap<>();
@@ -32,6 +33,9 @@ public TestDataPool(int tcRowNumber){
 	System.out.println("Test Case Details:");
 	System.out.println("Complete TestCase Name = "+stack);
   	
+	//Deleting the old execution's screenshots
+	FileSystemUtils.deleteFilesWithExtension(Constants.screenshotFolderPath, ".png");
+	
 	try {
 		tcData=ExcelUtils.getTestDataXls(Constants.DATAPOOL_PATH, "Automation", 0, tcRowNumber);
 	} catch (Exception e) {

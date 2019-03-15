@@ -81,7 +81,7 @@ public class KeyboardUtils {
 	}
 
 	// Press TAB
-	public  void Key_Tab() throws AWTException, InterruptedException
+	public static void Key_Tab() throws AWTException, InterruptedException
 	{		
 		Thread.sleep(1000);
 		Robot r = new Robot();
@@ -89,6 +89,8 @@ public class KeyboardUtils {
 		r.keyPress(KeyEvent.VK_TAB); 
 		r.keyRelease(KeyEvent.VK_TAB);
 	}
+	
+	
 
 	public  void Key_BrowserBack() throws AWTException, InterruptedException
 	{		
@@ -226,7 +228,7 @@ public class KeyboardUtils {
 	}
 
 	// Press Key_Enter
-	public  void Key_Enter() throws InterruptedException, AWTException
+	public static void Key_Enter() throws InterruptedException, AWTException
 	{
 		Robot r = new Robot();
 

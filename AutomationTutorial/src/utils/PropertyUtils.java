@@ -47,7 +47,7 @@ public class PropertyUtils {
 			FileInputStream fis = new FileInputStream(file);
 			props.load(fis);
 		} catch (FileNotFoundException e) {
-			//		e.printStackTrace();
+					e.printStackTrace();
 		} catch (IOException e) {
 			//		e.printStackTrace();
 		}

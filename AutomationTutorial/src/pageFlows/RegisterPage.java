@@ -9,6 +9,7 @@ import data.TestDataPool;
 import infrastructure.Operations;
 import pageObjects.RegisterObj;
 import utils.ExcelUtils;
+import utils.PasswordUtils;
 import utils.ReportingUtils;
 
 public class RegisterPage {
@@ -41,8 +42,9 @@ public class RegisterPage {
 		*/
 		op.selectDropdown(driver, RegisterObj.dropdown_Country, TestDataPool.tcData.get("country"));
 		op.setText(driver, RegisterObj.textbox_UserName, TestDataPool.tcData.get("userName"));
-		op.setText(driver, RegisterObj.textbox_Password, TestDataPool.tcData.get("password"));
-		op.setText(driver, RegisterObj.textbox_ConfirmPassword, TestDataPool.tcData.get("password"));
+		String password = PasswordUtils.decryptString(TestDataPool.tcData.get("password"));
+		op.setText(driver, RegisterObj.textbox_Password, password);
+		op.setText(driver, RegisterObj.textbox_ConfirmPassword, password);
 
 		ReportingUtils.reportResult("Pass", "Registration", "Registration successful!");
 		
