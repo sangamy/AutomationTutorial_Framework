@@ -1,5 +1,5 @@
 package test;
-
+//Scenario: Register in Demoaut.com and book a 2-way flight for 2 persons and validate the confirmation texts and total price
 import org.openqa.selenium.WebDriver;
 
 import data.Constants;
@@ -13,7 +13,7 @@ import pageFlows.RegisterPage;
 import pageFlows.SelectFlightPage;
 import setup.TestRunSetup;
 
-public class DemoAutTest_ModularizedFramework {
+public class DemoAutTest1_2Persons2WayFlight_ModularizedFramework {
 
 	public static void main(String[] args){
 		WebDriver driver = null;

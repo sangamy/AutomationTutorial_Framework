@@ -7,17 +7,22 @@ import javax.crypto.NoSuchPaddingException;
 
 import utils.KeyboardUtils;
 import utils.PasswordUtils;
+import utils.StringUtils;
 
 public class playground {
 
 	public static void main(String[] args) throws Exception {
+		StringUtils.subString("Selenium Automation", "um ", "ma");
+		StringUtils.replaceString("$12345", "$", "");
 		
-		KeyboardUtils.Key_Tab();
+		
+	/*	KeyboardUtils.Key_Tab();
 		KeyboardUtils.typeString("C:\\directory\\file.extension");
 		KeyboardUtils.Key_Enter();
+		*/
 		
-		
-		PasswordUtils.encryptString("autopass12345");
+		PasswordUtils.encryptString("password123");
+		PasswordUtils.decryptString("2eba4sy8o1e2t+aZ0U4dXw==");
 		
 		String x = "New York to Paris";
 		int y = x.indexOf("to ");

@@ -16,10 +16,14 @@ public class FlightFinderPage {
 	}
 
 	public void flightDetails(WebDriver driver){
-		boolean flag = driver.findElement(By.xpath(FlightFinderObj.radiobutton_RoundTrip)).isSelected();
-
+		/*boolean flag = driver.findElement(By.xpath(FlightFinderObj.radiobutton_RoundTrip)).isSelected();
 		if(!flag)
 			op.clickRadiobutton(driver, FlightFinderObj.radiobutton_RoundTrip);
+		 */
+		if (TestDataPool.tcData.get("tripType").equals("round"))
+			op.clickRadiobutton(driver, FlightFinderObj.radiobutton_RoundTrip);
+		else
+			op.clickRadiobutton(driver, FlightFinderObj.radiobutton_OneWay);
 
 		op.selectDropdown(driver, FlightFinderObj.dropdown_Passengers, TestDataPool.tcData.get("passengers"));
 		op.selectDropdown(driver, FlightFinderObj.dropdown_DepartingFrom, TestDataPool.tcData.get("departingFromCity"));
