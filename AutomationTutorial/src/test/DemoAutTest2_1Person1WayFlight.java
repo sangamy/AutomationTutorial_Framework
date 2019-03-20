@@ -20,7 +20,7 @@ public class DemoAutTest2_1Person1WayFlight {
 
 	//Setup
 		new TestDataPool(2);
-		WebDriver driver = TestRunSetup.launch("firefox", Constants.BASE_URL);
+		WebDriver driver = TestRunSetup.launch(Constants.BASE_URL);
 		
 	//Page flows
 		new HomePage().registration(driver);

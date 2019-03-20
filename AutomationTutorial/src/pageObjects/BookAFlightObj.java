@@ -11,11 +11,16 @@ public class BookAFlightObj {
 
 	//Passengers
 	public static final String textbox_firstName1 = "//input[contains(@name,'passFirst0')]";
-	public static final String textbox_firstName2 = "//input[contains(@name,'passFirst1')]";
 	public static final String textbox_lastName1 = "//input[contains(@name,'passLast0')]";
-	public static final String textbox_lastName2 = "//input[contains(@name,'passLast1')]";
 	public static final String dropdown_Meal1 = "//select[contains(@name,'pass.0.meal')]";
+
+	public static final String textbox_firstName2 = "//input[contains(@name,'passFirst1')]";
+	public static final String textbox_lastName2 = "//input[contains(@name,'passLast1')]";
 	public static final String dropdown_Meal2 = "//select[contains(@name,'pass.1.meal')]";
+	
+	public static final String textbox_firstName3 = "//input[contains(@name,'passFirst2')]";
+	public static final String textbox_lastName3 = "//input[contains(@name,'passLast2')]";
+	public static final String dropdown_Meal3 = "//select[contains(@name,'pass.2.meal')]";
 	
 	//Credit card details
 	public static final String dropdown_CreditCardType = "//select[contains(@name,'creditCard')]";

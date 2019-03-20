@@ -17,6 +17,7 @@ public class Constants {
 
 	public static final String DATAPOOL_PATH = workingDir + "/resource/Datapool.xls";
 	public static final String TESTDATAOUTPUT_PATH= workingDir+ "\\resource/TestDataOutput.properties";
+	public static final String CONFIG_PATH= workingDir+ "\\resource/config.properties";
 
 	public static String automationDatapoolPath = workingDir + "\\resources\\TestDataPool_Automation.xls";
 

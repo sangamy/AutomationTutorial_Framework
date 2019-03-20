@@ -62,13 +62,46 @@ public class BookAFlightPage {
 	public void passengers(WebDriver driver) throws Exception{
 		System.out.println("\n ##### BookAFlightPage - Passengers #####\n");
 
-		op.setText(driver, BookAFlightObj.textbox_firstName1, TestDataPool.tcData.get("firstName1"));
-		op.setText(driver, BookAFlightObj.textbox_lastName1, TestDataPool.tcData.get("lastName1"));
-		op.selectDropdown(driver, BookAFlightObj.dropdown_Meal1, TestDataPool.tcData.get("meal"));
-		op.setText(driver, BookAFlightObj.textbox_firstName2, TestDataPool.tcData.get("firstName2"));
-		op.setText(driver, BookAFlightObj.textbox_lastName2, TestDataPool.tcData.get("lastName2"));
-		op.selectDropdown(driver, BookAFlightObj.dropdown_Meal2, TestDataPool.tcData.get("meal"));
+		String noOfPassengers = TestDataPool.tcData.get("passengers");
+		
+		switch (noOfPassengers) {
+		case "1":
+			op.setText(driver, BookAFlightObj.textbox_firstName1, TestDataPool.tcData.get("firstName1"));
+			op.setText(driver, BookAFlightObj.textbox_lastName1, TestDataPool.tcData.get("lastName1"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal1, TestDataPool.tcData.get("meal"));
+			
+			break;
 
+		case "2":
+			op.setText(driver, BookAFlightObj.textbox_firstName1, TestDataPool.tcData.get("firstName1"));
+			op.setText(driver, BookAFlightObj.textbox_lastName1, TestDataPool.tcData.get("lastName1"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal1, TestDataPool.tcData.get("meal"));
+			
+			op.setText(driver, BookAFlightObj.textbox_firstName2, TestDataPool.tcData.get("firstName2"));
+			op.setText(driver, BookAFlightObj.textbox_lastName2, TestDataPool.tcData.get("lastName2"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal2, TestDataPool.tcData.get("meal"));
+
+			break;
+		case "3":
+			op.setText(driver, BookAFlightObj.textbox_firstName1, TestDataPool.tcData.get("firstName1"));
+			op.setText(driver, BookAFlightObj.textbox_lastName1, TestDataPool.tcData.get("lastName1"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal1, TestDataPool.tcData.get("meal"));
+			
+			op.setText(driver, BookAFlightObj.textbox_firstName2, TestDataPool.tcData.get("firstName2"));
+			op.setText(driver, BookAFlightObj.textbox_lastName2, TestDataPool.tcData.get("lastName2"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal2, TestDataPool.tcData.get("meal"));
+
+			op.setText(driver, BookAFlightObj.textbox_firstName3, TestDataPool.tcData.get("firstName2"));
+			op.setText(driver, BookAFlightObj.textbox_lastName3, TestDataPool.tcData.get("lastName2"));
+			op.selectDropdown(driver, BookAFlightObj.dropdown_Meal3, TestDataPool.tcData.get("meal"));
+
+			break;
+		default:
+			break;
+		}
+		
+		
+		
 
 	}
 

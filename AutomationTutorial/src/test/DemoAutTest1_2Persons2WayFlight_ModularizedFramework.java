@@ -25,7 +25,7 @@ public class DemoAutTest1_2Persons2WayFlight_ModularizedFramework {
 
 			//Setup
 			new TestDataPool(1);
-			driver = TestRunSetup.launch(browser, url);	
+			driver = TestRunSetup.launch(url);	
 
 			//Home Page - Registration click
 			new HomePage().registration(driver);
